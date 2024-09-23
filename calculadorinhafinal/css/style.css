@@ -1,0 +1,119 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#gerenciar {
+    background-color: #6010aa;
+    border: none;
+}
+
+/* Margem para container de cards */
+#container-card {
+    margin-top: 10% !important;
+}
+
+/* Altura do card de casa */
+#card-casa {
+    height: 500px !important;
+}
+
+#card-comodo{
+    height: 350px !important;
+}
+
+/* Estilos gerais para os cards */
+.card {
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.morc{
+    width: 2%;
+    height: 2%;
+}
+
+#house {
+    font-size: 4rem;
+    color: #6010aa;
+}
+
+#card-comodo:hover{
+    transform: scale(1.05);
+    background-color: #6010aa;
+    color: white;
+}
+
+#card-casa:hover {
+    transform: scale(1.05);
+    background-color: #6010aa;
+    color: white;
+}
+
+.card:hover #house {
+    color: white;
+}
+
+
+.card:hover~.card {
+    filter: blur(5px);
+}
+
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+
+
+.info-section {
+    padding: 30px;
+    background-color: #f8f9fa;
+}
+
+
+.info-section h2,
+.info-section h3 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+.bandeiras {
+    display: flex;
+    justify-content: center;
+    margin-left: 150px;
+    flex-direction: column;
+}
+
+
+.bandeira-verde {
+    background-color: #28a745;
+    color: white;
+}
+
+.bandeira-amarela {
+    background-color: #ffc107;
+    color: white;
+}
+
+.bandeira-vermelha1 {
+    background-color: #d6091e;
+    color: white;
+}
+
+.bandeira-vermelha2 {
+    background-color: #8b0000;
+    color: white;
+}
+
+.bandeira-verde,
+.bandeira-amarela,
+.bandeira-vermelha1,
+.bandeira-vermelha2 {
+    width: 800px;
+}

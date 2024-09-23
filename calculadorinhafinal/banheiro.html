@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banheiro - Calculadora de Consumo</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <img src="img/morc.png" alt="" class="morc">
+            <a class="navbar-brand" href="#">Batenergy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Gerenciador</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="info.html">Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calculadora.html">Calculadora</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <h1 class="text-center mb-4">Banheiro</h1>
+        
+        <form id="calcForm">
+            <div class="row">
+                <!-- Lâmpada -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Lâmpada</h5>
+                            <label for="lampPower">Potência (W):</label>
+                            <input type="number" class="form-control mb-2" id="lampPower" placeholder="Ex: 60" required>
+                            <label for="lampHours">Horas de uso por dia:</label>
+                            <input type="number" class="form-control" id="lampHours" placeholder="Ex: 1" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chuveiro -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Chuveiro</h5>
+                            <label for="showerPower">Potência (W):</label>
+                            <input type="number" class="form-control mb-2" id="showerPower" placeholder="Ex: 5500" required>
+                            <label for="showerHours">Horas de uso por dia:</label>
+                            <input type="number" class="form-control" id="showerHours" placeholder="Ex: 0.5" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn w-100" style="background-color: #6010aa; color: aliceblue;">Calcular Consumo Diário</button>
+        </form>
+
+        <!-- Resultado -->
+        <div id="resultado" class="mt-4" style="display: none;">
+            <h4 class="text-center">Resultado do Consumo</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Dispositivo</th>
+                        <th>Consumo Diário (kWh)</th>
+                        <th>Consumo Mensal (kWh)</th>
+                        <th>Custo Mensal (R$)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lâmpada</td>
+                        <td id="consumoLampada"></td>
+                        <td id="consumoMensalLampada"></td>
+                        <td id="custoLampada"></td>
+                    </tr>
+                    <tr>
+                        <td>Chuveiro</td>
+                        <td id="consumoChuveiro"></td>
+                        <td id="consumoMensalChuveiro"></td>
+                        <td id="custoChuveiro"></td>
+                    </tr>
+                    <tr class="fw-bold">
+                        <td>Total</td>
+                        <td id="consumoTotalDiario"></td>
+                        <td id="consumoTotalMensal"></td>
+                        <td id="custoTotalMensal"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('calcForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            // Pegar potências dos dispositivos (em Watts)
+            const potenciaLampada = parseFloat(document.getElementById('lampPower').value);
+            const potenciaChuveiro = parseFloat(document.getElementById('showerPower').value);
+
+            // Pegar valores dos campos de entrada
+            const horasLampada = parseFloat(document.getElementById('lampHours').value);
+            const horasChuveiro = parseFloat(document.getElementById('showerHours').value);
+
+            // Custo por kWh (ajuste conforme necessário)
+            const custoKwh = 0.85;
+
+            // Cálculo de consumo diário (kWh = Potência * horas / 1000)
+            const consumoLampada = (potenciaLampada * horasLampada) / 1000;
+            const consumoChuveiro = (potenciaChuveiro * horasChuveiro) / 1000;
+
+            // Calcular consumo mensal
+            const diasNoMes = 30;
+            const consumoMensalLampada = consumoLampada * diasNoMes;
+            const consumoMensalChuveiro = consumoChuveiro * diasNoMes;
+
+            // Cálculo do custo mensal
+            const custoLampada = (consumoMensalLampada * custoKwh).toFixed(2);
+            const custoChuveiro = (consumoMensalChuveiro * custoKwh).toFixed(2);
+
+            // Calcular totais
+            const consumoTotalDiario = consumoLampada + consumoChuveiro;
+            const consumoTotalMensal = consumoTotalDiario * diasNoMes;
+            const custoTotalMensal = (parseFloat(custoLampada) + parseFloat(custoChuveiro)).toFixed(2);
+
+            // Exibir resultados na tabela
+            document.getElementById('consumoLampada').textContent = consumoLampada.toFixed(2);
+            document.getElementById('consumoMensalLampada').textContent = consumoMensalLampada.toFixed(2);
+            document.getElementById('custoLampada').textContent = custoLampada;
+
+            document.getElementById('consumoChuveiro').textContent = consumoChuveiro.toFixed(2);
+            document.getElementById('consumoMensalChuveiro').textContent = consumoMensalChuveiro.toFixed(2);
+            document.getElementById('custoChuveiro').textContent = custoChuveiro;
+
+            // Exibir totais
+            document.getElementById('consumoTotalDiario').textContent = consumoTotalDiario.toFixed(2);
+            document.getElementById('consumoTotalMensal').textContent = consumoTotalMensal.toFixed(2);
+            document.getElementById('custoTotalMensal').textContent = custoTotalMensal;
+
+            // Mostrar a tabela de resultados
+            document.getElementById('resultado').style.display = 'block';
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-6Vo6WmT6XxYYCplKnZiCOj2zNeAok19X5suwBaqSvS5SvYpOcKh4TBuNOK9CdtHU" crossorigin="anonymous

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <img src="img/morc.png" alt="" class="morc">
+            <a class="navbar-brand" href="#">Batenergy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Gerenciador</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="info.html">Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calculadora.html">Calculadora</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Seção principal de informações -->
+    <section class="info-section">
+        <div class="container">
+            <h2>Informações sobre o Gasto de Energia</h2>
+            <div class="row">
+                <!-- Card 1: Cálculo Diário -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Cálculo Diário</h5>
+                            <p class="card-text">Para calcular o consumo diário de um aparelho, utilize a fórmula:</p>
+                            <p class="card-text"><strong>Consumo (kWh) = Potência (W) × Tempo (h) ÷ 1.000</strong></p>
+                            <p class="card-text">Exemplo: Um ventilador de 100W usado por 5 horas consome 0,5 kWh/dia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Consumo de Energia em Standby -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Consumo em Standby</h5>
+                            <p class="card-text">Aparelhos eletrônicos em modo standby ainda consomem energia, sendo responsáveis por até 12% do consumo total de energia residencial.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Dica de Economia -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Dica de Economia</h5>
+                            <p class="card-text">Desligue luzes e eletrodomésticos que não estão sendo utilizados. Isso pode reduzir até 20% da sua conta de energia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Energia Solar Residencial -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Energia Solar Residencial</h5>
+                            <p class="card-text">A energia solar é uma das opções mais sustentáveis para gerar eletricidade em sua casa. Um sistema residencial pode reduzir até 95% da sua conta de energia elétrica.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Curiosidade sobre Energia Solar -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Curiosidade sobre Energia Solar</h5>
+                            <p class="card-text">O Brasil tem uma das melhores incidências de luz solar no mundo, tornando o país um dos mais indicados para a instalação de painéis solares.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Impacto Ambiental -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Impacto Ambiental</h5>
+                            <p class="card-text">Ao utilizar energia solar, você contribui para a redução de emissões de gases de efeito estufa e ajuda a preservar o meio ambiente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção das bandeiras tarifárias -->
+    <section class="info-section">
+        <div class="container">
+            <h3>Bandeiras Tarifárias</h3>
+            <div class="col bandeiras">
+                <!-- Bandeira Verde -->
+                <div class="col-md-4">
+                    <div class="card bandeira-verde">
+                        <div class="card-body">
+                            <h5 class="card-title">Bandeira Verde</h5>
+                            <p class="card-text">Sem acréscimos na tarifa de energia. Utilizada quando as condições de geração de energia são favoráveis.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bandeira Amarela -->
+                <div class="col-md-4">
+                    <div class="card bandeira-amarela">
+                        <div class="card-body">
+                            <h5 class="card-title">Bandeira Amarela</h5>
+                            <p class="card-text">Acréscimo de R$ 1,885 por 100 kWh consumido. Aplica-se quando há um custo maior na geração de energia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bandeira Vermelha Patamar 1 -->
+                <div class="col-md-4">
+                    <div class="card bandeira-vermelha1">
+                        <div class="card-body">
+                            <h5 class="card-title">Bandeira Vermelha (Patamar 1)</h5>
+                            <p class="card-text">Acréscimo de R$ 4,463 por 100 kWh consumido. Aplica-se quando as condições de geração são mais caras.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bandeira Vermelha Patamar 2 -->
+                <div class="col-md-4">
+                    <div class="card bandeira-vermelha2">
+                        <div class="card-body">
+                            <h5 class="card-title">Bandeira Vermelha (Patamar 2)</h5>
+                            <p class="card-text">Acréscimo de R$ 7,877 por 100 kWh consumido. Indicada em períodos de custo elevado para geração de energia, como em tempos de seca.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-aen4a9FZcyw/w8Y1AkTY7llkUhqQ5uBoC5RfRQFHCqqXAYxgHxQ6Rz5AfnJ5EJgS" crossorigin="anonymous"></script>
+</body>
+
+</html>
